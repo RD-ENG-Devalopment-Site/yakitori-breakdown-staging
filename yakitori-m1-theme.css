@@ -1,0 +1,304 @@
+/*
+ * Project APEX Flow - shared M1 visual language
+ * Presentation only: no data binding, calculation, routing, or API behavior.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --m1-bg: #151521;
+    --m1-bg-deep: #11111b;
+    --m1-surface: #1e1e2d;
+    --m1-surface-soft: #1a1a27;
+    --m1-input: #151522;
+    --m1-border: #323248;
+    --m1-border-soft: #2b2b40;
+    --m1-text: #ffffff;
+    --m1-muted: #a1a5b7;
+    --m1-subtle: #7e8299;
+    --m1-blue: #009ef7;
+    --m1-green: #50cd89;
+    --m1-purple: #8b5cf6;
+    --m1-pink: #f1416c;
+    --m1-yellow: #ffc700;
+    --m1-radius: 12px;
+    --m1-radius-lg: 16px;
+    --m1-shadow: 0 10px 28px rgba(5, 5, 15, 0.18);
+}
+
+body.m1-theme {
+    background: var(--m1-bg);
+    color: var(--m1-muted);
+    font-family: "Sarabun", "Noto Sans Thai", Tahoma, sans-serif;
+    font-feature-settings: "kern" 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+body.m1-theme .font-en,
+body.m1-theme [data-font="en"] {
+    font-family: "Inter", Arial, sans-serif;
+}
+
+body.m1-theme h1,
+body.m1-theme h2,
+body.m1-theme h3,
+body.m1-theme h4,
+body.m1-theme h5,
+body.m1-theme h6 {
+    color: var(--m1-text);
+    font-family: "Sarabun", "Noto Sans Thai", Tahoma, sans-serif;
+}
+
+body.m1-theme .bg-card,
+body.m1-theme .card,
+body.m1-theme .panel,
+body.m1-theme .surface-card {
+    background-color: var(--m1-surface);
+    border-color: var(--m1-border);
+}
+
+body.m1-theme .bg-card-gradient {
+    background: linear-gradient(145deg, var(--m1-surface) 0%, var(--m1-bg-deep) 100%);
+    border-color: var(--m1-border);
+}
+
+body.m1-theme .top-nav,
+body.m1-theme nav[aria-label="Page navigation"] {
+    background: var(--m1-surface-soft);
+    border-color: var(--m1-border);
+}
+
+body.m1-theme .top-nav .nav-item {
+    color: #e8eaf0;
+}
+
+body.m1-theme .top-nav .nav-item.active::after {
+    background: var(--m1-pink);
+}
+
+body.m1-theme a,
+body.m1-theme button,
+body.m1-theme select,
+body.m1-theme input,
+body.m1-theme textarea {
+    font: inherit;
+}
+
+body.m1-theme input,
+body.m1-theme select,
+body.m1-theme textarea,
+body.m1-theme .control {
+    background-color: var(--m1-input);
+    border-color: var(--m1-border);
+    color: var(--m1-text);
+    border-radius: 10px;
+}
+
+body.m1-theme input::placeholder,
+body.m1-theme textarea::placeholder {
+    color: var(--m1-subtle);
+}
+
+body.m1-theme input:focus,
+body.m1-theme select:focus,
+body.m1-theme textarea:focus,
+body.m1-theme .control:focus {
+    outline: none;
+    border-color: var(--m1-blue);
+    box-shadow: 0 0 0 3px rgba(0, 158, 247, 0.12);
+}
+
+body.m1-theme button,
+body.m1-theme [role="button"] {
+    transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease,
+        transform 160ms ease;
+}
+
+body.m1-theme button:active,
+body.m1-theme [role="button"]:active {
+    transform: translateY(1px);
+}
+
+body.m1-theme table {
+    border-color: var(--m1-border);
+    font-variant-numeric: tabular-nums;
+}
+
+body.m1-theme thead {
+    background: var(--m1-bg-deep);
+    color: var(--m1-muted);
+}
+
+body.m1-theme th,
+body.m1-theme td,
+body.m1-theme tr {
+    border-color: var(--m1-border);
+}
+
+body.m1-theme tbody tr {
+    transition: background-color 150ms ease;
+}
+
+body.m1-theme tbody tr:hover {
+    background-color: rgba(139, 92, 246, 0.055);
+}
+
+body.m1-theme ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+body.m1-theme ::-webkit-scrollbar-track {
+    background: var(--m1-bg-deep);
+}
+
+body.m1-theme ::-webkit-scrollbar-thumb {
+    background: #38384f;
+    border: 2px solid var(--m1-bg-deep);
+    border-radius: 999px;
+}
+
+body.m1-theme ::-webkit-scrollbar-thumb:hover {
+    background: #4a4a68;
+}
+
+/* Dashboard ------------------------------------------------------------ */
+body.m1-dashboard {
+    min-height: 100vh;
+}
+
+body.m1-dashboard .bg-card,
+body.m1-dashboard .bg-card-gradient {
+    box-shadow: var(--m1-shadow);
+}
+
+body.m1-dashboard main > .grid:first-child > .bg-card {
+    min-height: 142px;
+}
+
+body.m1-dashboard main > .grid:first-child > .bg-card:nth-child(1) {
+    border-top-color: var(--m1-blue);
+}
+
+body.m1-dashboard main > .grid:first-child > .bg-card:nth-child(2) {
+    border-top-color: var(--m1-green);
+}
+
+body.m1-dashboard main > .grid:first-child > .bg-card:nth-child(3) {
+    border-top-color: var(--m1-purple);
+}
+
+body.m1-dashboard main > .grid:first-child > .bg-card:nth-child(4) {
+    border-top-color: var(--m1-pink);
+}
+
+body.m1-dashboard canvas {
+    max-width: 100%;
+}
+
+body.m1-dashboard .row-active {
+    background-color: rgba(139, 92, 246, 0.14) !important;
+    border-left-color: var(--m1-purple);
+}
+
+body.m1-dashboard .glow-text-green {
+    text-shadow: 0 0 15px rgba(80, 205, 137, 0.4);
+}
+
+body.m1-dashboard .glow-text-blue {
+    text-shadow: 0 0 15px rgba(0, 158, 247, 0.4);
+}
+
+/* Portal --------------------------------------------------------------- */
+body.m1-portal #sidebar,
+body.m1-portal header {
+    background-color: var(--m1-surface-soft);
+    border-color: var(--m1-border);
+}
+
+body.m1-portal .main-card,
+body.m1-portal .summary-card,
+body.m1-portal .metric-card,
+body.m1-portal .compare-card {
+    background-color: var(--m1-surface);
+    border-color: var(--m1-border);
+    box-shadow: var(--m1-shadow);
+}
+
+/* Forms ---------------------------------------------------------------- */
+body.m1-form {
+    background:
+        radial-gradient(circle at 10% 0%, rgba(0, 158, 247, 0.08), transparent 32%),
+        var(--m1-bg);
+}
+
+body.m1-form main {
+    width: min(100%, 1480px);
+    margin-inline: auto;
+}
+
+body.m1-form form,
+body.m1-form .form-card,
+body.m1-form main > section,
+body.m1-form main > header,
+body.m1-form main > div.card {
+    border-color: var(--m1-border);
+}
+
+body.m1-form label {
+    color: #d9dbea;
+    font-weight: 600;
+}
+
+body.m1-form fieldset {
+    border-color: var(--m1-border);
+}
+
+body.m1-form legend {
+    color: var(--m1-text);
+}
+
+/* Analysis, summaries and detail pages -------------------------------- */
+body.m1-analysis,
+body.m1-detail {
+    background:
+        radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.055), transparent 30%),
+        var(--m1-bg);
+}
+
+body.m1-analysis main,
+body.m1-detail main {
+    width: min(100%, 1600px);
+    margin-inline: auto;
+}
+
+body.m1-analysis section,
+body.m1-analysis article,
+body.m1-detail section,
+body.m1-detail article {
+    border-color: var(--m1-border);
+}
+
+body.m1-analysis .card,
+body.m1-detail .card {
+    box-shadow: var(--m1-shadow);
+}
+
+/* Viewer shell only. The generated application remains untouched. */
+body.m1-viewer {
+    margin: 0;
+    background: var(--m1-bg-deep);
+}
+
+@media (max-width: 768px) {
+    body.m1-dashboard,
+    body.m1-form,
+    body.m1-analysis,
+    body.m1-detail {
+        padding: 12px;
+    }
+
+    body.m1-theme table {
+        font-size: 12px;
+    }
+}

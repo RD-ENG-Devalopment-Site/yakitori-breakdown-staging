@@ -1,0 +1,45 @@
+.topbar h1 { margin:0; }
+.layout-feed { max-width:32rem; display:grid; gap:6px; font-size:12px; }
+.layout-feed p { margin:0; color:#c5d3e6; }
+.layout-feed button { justify-self:start; }
+#layoutFeedStatus[data-stale="true"],.layout-missing { color:#ffd24d; }
+.machine-summary { min-width:0; }
+.machine-summary h2 { overflow-wrap:anywhere; margin:0 0 10px; }
+.layout-details { margin:24px 0; display:grid; gap:5px; }
+.layout-details dt { color:#b4c7df; font-size:12px; margin-top:12px; }
+.layout-details dd { margin:0; white-space:pre-wrap; overflow-wrap:anywhere; font-size:14px; }
+.layout-note { color:#b4c7df; font-size:12px; line-height:1.6; }
+.configuration-link { display:inline-block; text-decoration:none; margin-top:12px; }
+.viewer-stage { min-height:580px; }
+.usage-hint { display:none; }
+.conveyor-legend { bottom:18px; }
+.viewer-toolbar { top:85px; left:16px; right:auto; flex-wrap:wrap; max-width:calc(100% - 32px); }
+.viewer-info-panel { top:148px; }
+.viewer-info-grid b { overflow-wrap:anywhere; }
+.viewer-overlay { z-index:10; }
+.viewer-info-panel { z-index:11; background:#121623; }
+.machine-overview button span:last-child { overflow:hidden; text-overflow:ellipsis; }
+.is-unknown { color:#c5d3e6 !important; }
+.machine-marker.is-status-unknown { background:#354256; border-color:#b4c7df; }
+button:focus-visible,a:focus-visible,select:focus-visible { outline:2px solid #8be7ff; outline-offset:3px; }
+::selection { color:#11131f; background:#8be7ff; }
+@media(max-width:1120px) { .viewer-stage { height:700px; } }
+@media(max-width:720px) {
+  .app-shell { padding:12px; gap:18px; grid-template-columns:minmax(0,1fr); }
+  .topbar h1 { font-size:26px; }
+  .topbar { gap:12px; }
+  .layout-feed { width:100%; }
+  .viewer-stage { min-width:0; width:100%; min-height:0; height:auto; display:flex; flex-direction:column; overflow:hidden; }
+  .viewer-stage > .viewer-overlay { position:relative; inset:auto; display:grid; gap:12px; padding:12px; order:1; }
+  .viewer-stage > div:not(.viewer-overlay):not(.breakdown-status-panel):not(.stage-message) { order:2; height:440px !important; min-height:440px; overflow:hidden; }
+  .viewer-stage .selected-chip { position:static; max-width:100%; box-shadow:none; }
+  .viewer-stage .viewer-toolbar { position:static; max-width:100%; width:100%; display:flex; flex-wrap:wrap; gap:6px; box-shadow:none; }
+  .viewer-stage .viewer-toolbar .machine-select { flex:1 1 100%; min-width:0; width:100%; }
+  .viewer-stage .viewer-toolbar button { flex:1 0 40px; min-width:40px; }
+  .viewer-info-panel { display:none; }
+  .viewer-toolbar { top:90px; }
+  .selected-chip { max-width:calc(100% - 32px); }
+  .viewer-stage .conveyor-legend { position:static; max-width:100%; width:100%; box-shadow:none; }
+  .viewer-stage .breakdown-status-panel { position:relative; left:auto; bottom:auto; width:auto; margin:12px; order:3; z-index:10; }
+  .configuration-link { max-width:100%; }
+}

@@ -1,0 +1,12 @@
+{
+  "build": "readonly-v1",
+  "source": [
+    "src/vendor-runtime.js",
+    "src/model-viewer.js",
+    "src/layout-viewer.js"
+  ],
+  "asset": "assets/index-readonly.js",
+  "sha256": "ebc496b054d9aeee2225c3722ea02e6df5e9dd2acfe0d655f2c21b9e008a9f39",
+  "texture": "data/embedded-normal.png",
+  "textureSha256": "f2fc335e3a68ddda2e7d6026dd72aca8e4802e92745d94468436f87e801aee47"
+}

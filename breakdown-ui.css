@@ -1,0 +1,175 @@
+body { margin:0; padding:24px; color:#bac1d1; }
+main { max-width:1280px; margin:auto; }
+main > * { margin-bottom:24px; }
+.card { padding:24px; border:1px solid #323248; border-radius:14px; }
+h1,h2,h3,dt { color:#fff; }
+h1 { font-size:clamp(26px,4vw,38px); margin:0 0 12px; }
+h2 { font-size:22px; margin:0 0 16px; }
+h3 { margin-top:24px; }
+nav,.bd-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+a { color:#80caff; text-decoration:underline; text-underline-offset:3px; }
+button,input,select,textarea { font:inherit; }
+button { padding:10px 16px; border:1px solid #4b5770; border-radius:8px; background:#2b2b40; color:#fff; cursor:pointer; }
+button:hover:not(:disabled) { background:#394157; }
+button:disabled { opacity:.55; cursor:not-allowed; }
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible { outline:2px solid #ffc700; outline-offset:3px; }
+input,select,textarea { display:block; width:100%; box-sizing:border-box; margin-top:8px; padding:10px 12px; background:#151521; border:1px solid #4b5770; border-radius:8px; color:#fff; caret-color:#ffc700; }
+select:disabled { opacity:1; color:#bac1d1; }
+textarea { resize:vertical; }
+.bd-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:24px 0; }
+.bd-grid > * { min-width:0; overflow-wrap:anywhere; }
+.bd-checkbox input { display:inline; width:auto; }
+dd { margin:6px 0 0; white-space:pre-wrap; }
+#feedback,#transportState { padding:12px 0; overflow-wrap:anywhere; }
+[data-tone="error"] { color:#ff94ad; } [data-tone="success"] { color:#7ee1ae; }
+.bd-table-scroll { overflow:auto; }
+table { width:100%; border-collapse:collapse; min-width:850px; }
+th,td { padding:12px; text-align:left; border-bottom:1px solid #323248; vertical-align:top; }
+td { max-width:300px; overflow-wrap:anywhere; white-space:pre-wrap; }
+[hidden] { display:none!important; }
+::selection { background:#005c91; color:#fff; }
+body[data-breakdown-page] h1 { font-size:clamp(26px,4vw,38px); margin:0 0 12px; font-weight:700; }
+body[data-breakdown-page] h2 { font-size:22px; margin:0 0 16px; font-weight:700; }
+body[data-breakdown-page] h3 { font-size:18px; margin:24px 0 12px; font-weight:700; }
+body[data-breakdown-page] .bd-actions button, body[data-breakdown-page] #reloadEvents { min-height:44px; padding:10px 16px; font-size:16px; }
+body[data-breakdown-page] .bd-grid input:not([type=checkbox]), body[data-breakdown-page] .bd-grid select, body[data-breakdown-page] .bd-grid textarea { padding:10px 12px; min-height:44px; margin-top:8px; font-size:16px; }
+body[data-breakdown-page] .bd-grid textarea { min-height:104px; }
+body[data-breakdown-page] .bd-checkbox input { width:auto; min-height:0; margin-inline-end:8px; }
+body[data-breakdown-page] #machineOptions button { min-height:50px; background:transparent; border:0; padding:0; }
+@media(max-width:600px) { body { padding:16px; } .card { padding:16px; } .bd-grid { grid-template-columns:1fr; } }
+
+/* Restore the committed Recording Hub visual language on Log only.
+   The new receipt-backed workflow and the other two pages are unchanged. */
+body.recording-workspace[data-breakdown-page="log"] {
+    padding: 32px;
+    color: var(--recording-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    color-scheme: dark;
+}
+body[data-breakdown-page="log"] main > * { margin-bottom: 24px; }
+body[data-breakdown-page="log"] .card { border-radius: 16px; }
+body[data-breakdown-page="log"] .bd-log-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+body[data-breakdown-page="log"] .bd-log-heading { min-width: 0; }
+body[data-breakdown-page="log"] .bd-log-header nav {
+    flex-shrink: 0;
+    margin-top: 0;
+    background: transparent;
+}
+body[data-breakdown-page="log"] .bd-log-header .recording-nav {
+    text-decoration: none;
+    font-family: "Inter", "Sarabun", sans-serif;
+}
+body[data-breakdown-page="log"] .bd-log-eyebrow {
+    margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+body.recording-workspace[data-breakdown-page="log"] main > header.card .bd-log-eyebrow { font-size: 11px !important; }
+body[data-breakdown-page="log"] .recording-chip { font-size: 11px; }
+body[data-breakdown-page="log"] .bd-log-header h1 { margin-bottom: 0; }
+body[data-breakdown-page="log"] .bd-log-header h1 + p { margin-bottom: 0; }
+body[data-breakdown-page="log"] .bd-log-intro {
+    margin-bottom: 24px;
+    padding: 16px;
+    border: 1px solid var(--recording-border);
+    border-radius: 12px;
+    background: var(--recording-field);
+}
+body.recording-workspace[data-breakdown-page="log"] .bd-log-intro h2 {
+    margin: 0 0 8px;
+    color: var(--recording-accent);
+    font-family: "Inter", "Sarabun", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+body[data-breakdown-page="log"] .bd-log-intro p { margin: 0; }
+body[data-breakdown-page="log"] form label {
+    display: block;
+    color: var(--recording-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+body[data-breakdown-page="log"] .bd-log-machine-label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 20px 0 12px;
+}
+body[data-breakdown-page="log"] .bd-log-machine-label p { margin: 0; }
+body[data-breakdown-page="log"] .bd-log-machine-label p:first-child { color: var(--recording-text); font-weight: 600; }
+body[data-breakdown-page="log"] .bd-log-machine-label p:last-child { font-size: 12px; }
+body[data-breakdown-page="log"] .bd-required { color: var(--m1-pink); }
+body[data-breakdown-page="log"] .bd-grid { gap: 16px; }
+body[data-breakdown-page="log"] .bd-log-wide { grid-column: 1 / -1; }
+body.recording-workspace[data-breakdown-page="log"] form input:not([type="hidden"]),
+body.recording-workspace[data-breakdown-page="log"] form select,
+body.recording-workspace[data-breakdown-page="log"] form textarea {
+    min-height: 46px;
+    margin-top: 8px;
+    padding: 12px 16px;
+    background: var(--recording-field);
+    border: 1px solid var(--recording-border);
+    border-radius: 11px;
+    color: var(--recording-text);
+    font-size: 14px;
+    font-weight: 400;
+    box-shadow: none;
+}
+body.recording-workspace[data-breakdown-page="log"] form select:disabled { color: var(--recording-muted); }
+body.recording-workspace[data-breakdown-page="log"] form input:focus,
+body.recording-workspace[data-breakdown-page="log"] form select:focus,
+body.recording-workspace[data-breakdown-page="log"] form textarea:focus {
+    border-color: var(--recording-accent);
+    box-shadow: 0 0 0 3px rgba(var(--recording-accent-rgb), .09);
+}
+body[data-breakdown-page="log"] .bd-actions { gap: 12px; padding-top: 8px; }
+body.recording-workspace[data-breakdown-page="log"] .bd-actions button {
+    min-height: 46px;
+    padding: 12px 20px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: #2b2b40;
+    color: #fff;
+    font-family: "Inter", "Sarabun", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+body.recording-workspace[data-breakdown-page="log"] .bd-actions button:hover:not(:disabled) { background: #323248; }
+body.recording-workspace[data-breakdown-page="log"] #saveReport {
+    background: var(--recording-accent);
+    color: var(--recording-field);
+}
+body.recording-workspace[data-breakdown-page="log"] #saveReport:hover:not(:disabled) { background: #e5b300; }
+body[data-breakdown-page="log"] #transportState { margin-bottom: 8px; padding: 0; font-size: 13px; }
+body[data-breakdown-page="log"] #feedback { padding: 0; font-size: 14px; }
+body[data-breakdown-page="log"] #feedback:empty { display: none; }
+body.recording-workspace[data-breakdown-page="log"] main > section.card > h2 { margin: 0 0 16px; font-size: 18px; }
+body[data-breakdown-page="log"] #breakdownHistory p {
+    margin: 12px 0 0;
+    padding: 16px;
+    border: 1px solid var(--recording-border);
+    border-radius: 12px;
+    background: var(--recording-field);
+    overflow-wrap: anywhere;
+}
+body[data-breakdown-page="log"] #breakdownHistory a,
+body[data-breakdown-page="log"] #feedback a { color: var(--recording-accent); }
+@media (max-width: 1199px) {
+    body[data-breakdown-page="log"] .bd-log-header { flex-direction: column; }
+    body[data-breakdown-page="log"] .bd-log-header nav { flex-shrink: 1; }
+}
+@media (max-width: 600px) {
+    body.recording-workspace[data-breakdown-page="log"] form input,
+    body.recording-workspace[data-breakdown-page="log"] form select,
+    body.recording-workspace[data-breakdown-page="log"] form textarea { font-size: 16px; }
+}

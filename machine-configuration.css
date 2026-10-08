@@ -1,0 +1,48 @@
+.configuration-page { margin: 0; padding: 32px 24px 100px; }
+.configuration-page * { box-sizing: border-box; }
+.configuration-page [hidden] { display: none !important; }
+.configuration-page #app { margin: 0 auto; max-width: 1180px; }
+.configuration-page .card { border: 1px solid var(--recording-border); border-radius: 16px; }
+.configuration-header { display: flex; justify-content: space-between; align-items: start; gap: 24px; }
+.configuration-page h1, .configuration-page h2, .configuration-page h3 { margin: 0; color: var(--recording-text); }
+.configuration-page h2 { font-size: 20px; }
+.configuration-page p { line-height: 1.7; margin: 8px 0 0; overflow-wrap: anywhere; }
+.configuration-page main > header.card h1 + p { max-width: 65ch; }
+.configuration-panel { margin-top: 24px; padding: 28px; }
+.configuration-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.configuration-page button { background: #252538; color: #fff; border: 1px solid #45455f; padding: 11px 16px; border-radius: 8px; cursor: pointer; font-size: 14px; min-height: 44px; }
+.configuration-page button:hover:not(:disabled) { border-color: #ffc700; }
+.configuration-page button:disabled { opacity: .5; cursor: not-allowed; }
+.configuration-page :is(button, a, select, input, textarea):focus-visible { outline: 2px solid #ffc700; outline-offset: 3px; }
+.configuration-page ::selection { background: #ffc700; color: #151521; }
+#layoutMessage { padding: 14px 0; min-height: 48px; color: #b5b8c8; }
+#layoutMessage[data-tone="error"], .machine-feedback[data-tone="error"], .field-error { color: #ff8eaa; }
+.machine-feedback[data-tone="success"] { color: #50cd89; }
+.machine-selector { display: block; max-width: 320px; margin-bottom: 24px; }
+.machine-row { border-top: 1px solid var(--recording-border); padding: 24px 0 0; }
+.machine-summary { margin-bottom: 24px; }
+.machine-heading { display: flex; align-items: center; gap: 10px; }
+.machine-heading h3 { font-size: 23px; }
+.machine-id, .machine-updated { font-size: 13px; font-variant-numeric: tabular-nums; }
+.machine-dot { width: 10px; height: 10px; border-radius: 50%; background: #9599ad; flex-shrink: 0; }
+.machine-dot[data-status="running"] { background: #50cd89; }
+.machine-dot[data-status="idle"] { background: #9599ad; }
+.machine-dot[data-status="maintenance"] { background: #ffc700; }
+.machine-dot[data-status="fault"] { background: #f1416c; }
+.machine-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; }
+.machine-row label, .machine-selector { font-size: 14px; color: #b5b8c8; }
+.configuration-page :is(input, select, textarea) { display: block; width: 100%; min-width: 0; margin-top: 8px; background: var(--recording-field); border: 1px solid #45455f; border-radius: 8px; padding: 12px; font: inherit; font-size: 15px; color: white; color-scheme: dark; caret-color: #ffc700; min-height: 46px; }
+.configuration-page textarea { resize: vertical; line-height: 1.6; }
+.configuration-page :is(input, select, textarea):disabled { opacity: .6; }
+.configuration-page [aria-invalid="true"] { border-color: #ff8eaa; }
+.field-error { display: block; font-size: 13px; line-height: 1.6; }
+.layout-summary-note { grid-column: 1 / -1; margin-top: 8px; padding-top: 20px; border-top: 1px solid var(--recording-border); color: #b5b8c8; line-height: 1.7; }
+.wide-field, .machine-actions, .machine-feedback { grid-column: 1 / -1; }
+.machine-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.configuration-page .save-machine { background: #ffc700; color: #151521; border-color: #ffc700; font-weight: 700; }
+.machine-feedback { margin: 0 !important; font-size: 14px; min-height: 24px; }
+.configuration-note { font-size: 13px; border-top: 1px solid var(--recording-border); padding-top: 18px; margin-top: 24px !important; }
+.configuration-page { scrollbar-color: #45455f #151521; }
+@media (max-width: 1000px) { .configuration-header { flex-direction: column; } }
+@media (max-width: 600px) { .configuration-page { padding: 16px 12px 110px; } .configuration-panel { padding: 20px; } .configuration-toolbar { align-items: start; flex-direction: column; } .machine-fields { grid-template-columns: 1fr; gap: 20px; } .machine-selector { max-width: none; } .machine-actions button { flex: 1 1 100%; } }
+@media (max-width: 600px) { .configuration-page #yakitoriSessionControls { position: static !important; width: fit-content; margin: 20px 0 0 auto; } }

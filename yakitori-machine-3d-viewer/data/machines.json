@@ -1,0 +1,299 @@
+[
+  {
+    "machine_id": "YK-101",
+    "machine_name": "Skewer Yakitori Machine 1",
+    "model_node_name": "Skewer Yakitori Machine.STEP-8",
+    "product_name": "Yakitori Line 1",
+    "product_type": "Skewer Machine",
+    "description": "เครื่องเสียบไม้ฝั่งขวาของแถวหลักในไลน์ผลิต",
+    "remark": "แก้ไขชื่อสินค้าและรายละเอียดได้จากหน้า Detail Editor"
+  },
+  {
+    "machine_id": "YK-102",
+    "machine_name": "Skewer Yakitori Machine 2",
+    "model_node_name": "Skewer Yakitori Machine.STEP-1",
+    "product_name": "Yakitori Line 2",
+    "product_type": "Skewer Machine",
+    "description": "เครื่องเสียบไม้ตำแหน่งกลางของแถวหลักในไลน์ผลิต",
+    "remark": "แก้ไขชื่อสินค้าและรายละเอียดได้จากหน้า Detail Editor"
+  },
+  {
+    "machine_id": "YK-103",
+    "machine_name": "Skewer Yakitori Machine 3",
+    "model_node_name": "Skewer Yakitori Machine.STEP-9",
+    "product_name": "Yakitori Line 3",
+    "product_type": "Skewer Machine",
+    "description": "เครื่องเสียบไม้ฝั่งซ้ายของแถวหลักในไลน์ผลิต",
+    "remark": "แก้ไขชื่อสินค้าและรายละเอียดได้จากหน้า Detail Editor"
+  },
+  {
+    "machine_id": "YK-104",
+    "machine_name": "Skewer Yakitori Machine 4",
+    "model_node_name": "Skewer Yakitori Machine.STEP-7",
+    "product_name": "Yakitori Line 4",
+    "product_type": "Skewer Machine",
+    "description": "เครื่องเสียบไม้ตำแหน่งแถวล่างตรงกลางของไลน์ผลิต",
+    "remark": "แก้ไขชื่อสินค้าและรายละเอียดได้จากหน้า Detail Editor"
+  },
+  {
+    "machine_id": "YK-201",
+    "machine_name": "Yaki Conveyor Part 16.4m 1",
+    "model_node_name": "Yaki Conveyor_Part 16.4m-1",
+    "product_name": "Main Conveyor Line 1",
+    "product_type": "Conveyor Part",
+    "description": "สายพานหลักของฝั่งขวาในไลน์ผลิต",
+    "remark": "ใช้สำหรับอธิบายการไหลของชิ้นงานในไลน์"
+  },
+  {
+    "machine_id": "YK-202",
+    "machine_name": "Yaki Conveyor Part 16.4m 2",
+    "model_node_name": "Yaki Conveyor_Part 16.4m-2",
+    "product_name": "Main Conveyor Line 2",
+    "product_type": "Conveyor Part",
+    "description": "สายพานหลักของฝั่งกลางในไลน์ผลิต",
+    "remark": "ใช้สำหรับอธิบายการไหลของชิ้นงานในไลน์"
+  },
+  {
+    "machine_id": "YK-203",
+    "machine_name": "Yaki Conveyor Part 16.4m 3",
+    "model_node_name": "Yaki Conveyor_Part 16.4m-3",
+    "product_name": "Main Conveyor Line 3",
+    "product_type": "Conveyor Part",
+    "description": "สายพานหลักของฝั่งซ้ายในไลน์ผลิต",
+    "remark": "ใช้สำหรับอธิบายการไหลของชิ้นงานในไลน์"
+  },
+  {
+    "machine_id": "YK-211",
+    "machine_name": "Conveyor Skewer Yakitori Assembly 4.5m 1",
+    "model_node_name": "Conveyor Skewer Yakitori Assembly_4.5m-1",
+    "product_name": "Transfer Conveyor A1",
+    "product_type": "Conveyor Assembly",
+    "description": "ชุดสายพานถ่ายโอนระยะ 4.5 เมตร ชุดที่ 1",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-212",
+    "machine_name": "Conveyor Skewer Yakitori Assembly 4.5m 2",
+    "model_node_name": "Conveyor Skewer Yakitori Assembly_4.5m-2",
+    "product_name": "Transfer Conveyor A2",
+    "product_type": "Conveyor Assembly",
+    "description": "ชุดสายพานถ่ายโอนระยะ 4.5 เมตร ชุดที่ 2",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-213",
+    "machine_name": "Conveyor Skewer Yakitori Assembly 4.5m 3",
+    "model_node_name": "Conveyor Skewer Yakitori Assembly_4.5m-3",
+    "product_name": "Transfer Conveyor A3",
+    "product_type": "Conveyor Assembly",
+    "description": "ชุดสายพานถ่ายโอนระยะ 4.5 เมตร ชุดที่ 3",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-214",
+    "machine_name": "Conveyor Skewer Yakitori Assembly 4.5m 4",
+    "model_node_name": "Conveyor Skewer Yakitori Assembly_4.5m-4",
+    "product_name": "Transfer Conveyor A4",
+    "product_type": "Conveyor Assembly",
+    "description": "ชุดสายพานถ่ายโอนระยะ 4.5 เมตร ชุดที่ 4",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-215",
+    "machine_name": "Conveyor Skewer Yakitori Assembly 4.5m 5",
+    "model_node_name": "Conveyor Skewer Yakitori Assembly_4.5m-5",
+    "product_name": "Transfer Conveyor A5",
+    "product_type": "Conveyor Assembly",
+    "description": "ชุดสายพานถ่ายโอนระยะ 4.5 เมตร ชุดที่ 5",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-221",
+    "machine_name": "Conveyor Skewer Yakitori Assembly 2.5m 1",
+    "model_node_name": "Conveyor Skewer Yakitori Assembly_2.5m-1",
+    "product_name": "Transfer Conveyor B1",
+    "product_type": "Conveyor Assembly",
+    "description": "ชุดสายพานถ่ายโอนระยะ 2.5 เมตร ชุดที่ 1",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-222",
+    "machine_name": "Conveyor Skewer Yakitori Assembly 2.5m 2",
+    "model_node_name": "Conveyor Skewer Yakitori Assembly_2.5m-2",
+    "product_name": "Transfer Conveyor B2",
+    "product_type": "Conveyor Assembly",
+    "description": "ชุดสายพานถ่ายโอนระยะ 2.5 เมตร ชุดที่ 2",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-223",
+    "machine_name": "Conveyor Skewer Yakitori Assembly 2.5m 3",
+    "model_node_name": "Conveyor Skewer Yakitori Assembly_2.5m-3",
+    "product_name": "Transfer Conveyor B3",
+    "product_type": "Conveyor Assembly",
+    "description": "ชุดสายพานถ่ายโอนระยะ 2.5 เมตร ชุดที่ 3",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-224",
+    "machine_name": "Conveyor Skewer Yakitori Assembly 2.5m 4",
+    "model_node_name": "Conveyor Skewer Yakitori Assembly_2.5m-4",
+    "product_name": "Transfer Conveyor B4",
+    "product_type": "Conveyor Assembly",
+    "description": "ชุดสายพานถ่ายโอนระยะ 2.5 เมตร ชุดที่ 4",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-231",
+    "machine_name": "Free Roller 38mm 1565 1",
+    "model_node_name": "Free Roller 38mm 1565-1",
+    "product_name": "Free Roller Set 1",
+    "product_type": "Free Roller",
+    "description": "ชุดลูกกลิ้งอิสระสำหรับถ่ายโอนชิ้นงาน ชุดที่ 1",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-232",
+    "machine_name": "Free Roller 38mm 1565 2",
+    "model_node_name": "Free Roller 38mm 1565-2",
+    "product_name": "Free Roller Set 2",
+    "product_type": "Free Roller",
+    "description": "ชุดลูกกลิ้งอิสระสำหรับถ่ายโอนชิ้นงาน ชุดที่ 2",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-233",
+    "machine_name": "Free Roller 38mm 1565 3",
+    "model_node_name": "Free Roller 38mm 1565-3",
+    "product_name": "Free Roller Set 3",
+    "product_type": "Free Roller",
+    "description": "ชุดลูกกลิ้งอิสระสำหรับถ่ายโอนชิ้นงาน ชุดที่ 3",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-234",
+    "machine_name": "Free Roller 38mm 1565 4",
+    "model_node_name": "Free Roller 38mm 1565-4",
+    "product_name": "Free Roller Set 4",
+    "product_type": "Free Roller",
+    "description": "ชุดลูกกลิ้งอิสระสำหรับถ่ายโอนชิ้นงาน ชุดที่ 4",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-235",
+    "machine_name": "Free Roller 38mm 1565 5",
+    "model_node_name": "Free Roller 38mm 1565-5",
+    "product_name": "Free Roller Set 5",
+    "product_type": "Free Roller",
+    "description": "ชุดลูกกลิ้งอิสระสำหรับถ่ายโอนชิ้นงาน ชุดที่ 5",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-236",
+    "machine_name": "Free Roller 38mm 1565 6",
+    "model_node_name": "Free Roller 38mm 1565-6",
+    "product_name": "Free Roller Set 6",
+    "product_type": "Free Roller",
+    "description": "ชุดลูกกลิ้งอิสระสำหรับถ่ายโอนชิ้นงาน ชุดที่ 6",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-237",
+    "machine_name": "Free Roller 38mm 1565 7",
+    "model_node_name": "Free Roller 38mm 1565-7",
+    "product_name": "Free Roller Set 7",
+    "product_type": "Free Roller",
+    "description": "ชุดลูกกลิ้งอิสระสำหรับถ่ายโอนชิ้นงาน ชุดที่ 7",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-238",
+    "machine_name": "Free Roller 38mm 1565 8",
+    "model_node_name": "Free Roller 38mm 1565-8",
+    "product_name": "Free Roller Set 8",
+    "product_type": "Free Roller",
+    "description": "ชุดลูกกลิ้งอิสระสำหรับถ่ายโอนชิ้นงาน ชุดที่ 8",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-241",
+    "machine_name": "Skewer Machine Base 1",
+    "model_node_name": "Skewer Machine Base-1",
+    "product_name": "Base Set 1",
+    "product_type": "Machine Base",
+    "description": "ฐานรองเครื่องเสียบไม้ ชุดที่ 1",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-242",
+    "machine_name": "Skewer Machine Base 2",
+    "model_node_name": "Skewer Machine Base-2",
+    "product_name": "Base Set 2",
+    "product_type": "Machine Base",
+    "description": "ฐานรองเครื่องเสียบไม้ ชุดที่ 2",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-243",
+    "machine_name": "Skewer Machine Base 3",
+    "model_node_name": "Skewer Machine Base-3",
+    "product_name": "Base Set 3",
+    "product_type": "Machine Base",
+    "description": "ฐานรองเครื่องเสียบไม้ ชุดที่ 3",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-244",
+    "machine_name": "Skewer Machine Base 4",
+    "model_node_name": "Skewer Machine Base-4",
+    "product_name": "Base Set 4",
+    "product_type": "Machine Base",
+    "description": "ฐานรองเครื่องเสียบไม้ ชุดที่ 4",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-245",
+    "machine_name": "Skewer Machine Base 5",
+    "model_node_name": "Skewer Machine Base-5",
+    "product_name": "Base Set 5",
+    "product_type": "Machine Base",
+    "description": "ฐานรองเครื่องเสียบไม้ ชุดที่ 5",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-246",
+    "machine_name": "Skewer Machine Base 6",
+    "model_node_name": "Skewer Machine Base-6",
+    "product_name": "Base Set 6",
+    "product_type": "Machine Base",
+    "description": "ฐานรองเครื่องเสียบไม้ ชุดที่ 6",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-247",
+    "machine_name": "Skewer Machine Base 7",
+    "model_node_name": "Skewer Machine Base-7",
+    "product_name": "Base Set 7",
+    "product_type": "Machine Base",
+    "description": "ฐานรองเครื่องเสียบไม้ ชุดที่ 7",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-248",
+    "machine_name": "Skewer Machine Base 8",
+    "model_node_name": "Skewer Machine Base-8",
+    "product_name": "Base Set 8",
+    "product_type": "Machine Base",
+    "description": "ฐานรองเครื่องเสียบไม้ ชุดที่ 8",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  },
+  {
+    "machine_id": "YK-249",
+    "machine_name": "Skewer Machine Base 9",
+    "model_node_name": "Skewer Machine Base-9",
+    "product_name": "Base Set 9",
+    "product_type": "Machine Base",
+    "description": "ฐานรองเครื่องเสียบไม้ ชุดที่ 9",
+    "remark": "ข้อมูล part กลับมาเพื่อใช้อธิบาย layout"
+  }
+]

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="referrer" content="no-referrer">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Machine Breakdown Event Detail - APEX Flow</title>
+        <script src="https://cdn.tailwindcss.com">
+        </script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap');
+            body { font-family: 'Sarabun', sans-serif; background: #151521; color: #a1a5b7; }
+            .font-en { font-family: 'Inter', sans-serif; }
+            .card { background: linear-gradient(145deg, #1e1e2d 0%, #151521 100%); }
+            .metric { background: #151521; border: 1px solid #323248; }
+        </style>
+        <link rel="stylesheet" href="yakitori-m1-theme.css?v=20260719-01">
+        <link rel="stylesheet" href="breakdown-ui.css">
+        <script defer src="yakitori-runtime.js">
+        </script>
+        <script defer src="breakdown-domain.js">
+        </script>
+        <script defer src="breakdown-supabase-config.js"></script>
+        <script defer src="breakdown-supabase.js"></script>
+        <script defer src="breakdown-client.js">
+        </script>
+        <script defer src="breakdown-ui.js">
+        </script>
+    </head>
+    <body class="m1-theme m1-detail" data-breakdown-page="detail">
+        <main>
+            <header class="card">
+                <h1>รายละเอียดเหตุการณ์ / ใบงาน</h1>
+                <nav>
+                    <a href="MachineConfiguration.html">Machine Configuration</a>
+                    <a href="index.html">Recording Hub</a>
+                    <a href="MachineBreakdownLog.html">แจ้งเหตุ</a>
+                    <a href="MachineBreakdownEvents.html">Event Table</a>
+                </nav>
+            </header>
+            <p id="transportState" role="status" aria-live="polite">กำลังตรวจช่องทางบันทึกที่ปลอดภัย…</p>
+            <p id="feedback" role="status" aria-live="polite">
+            </p>
+            <section id="emptyState" class="card" hidden>
+                <h2>ไม่พบเหตุการณ์นี้</h2>
+                <p>ตรวจ Event ID หรือกลับไปเลือกจาก Event Table ระบบจะไม่เปิดเหตุอื่นแทน</p>
+            </section>
+            <div id="detailApp" hidden>
+                <section class="card">
+                    <p id="legacyWarning" hidden role="status">legacy_incomplete: บันทึกเดิมยังไม่มีวันเวลาเริ่มหยุดที่ตรวจสอบแล้ว ไม่สามารถรับงาน ซ่อม คืนเครื่อง หรือปิดงานได้ การเพิ่ม schema/revision ไม่ยืนยันเวลาเดิม ต้องให้ผู้ดูแลตรวจหลักฐานและแก้ข้อมูล canonical ผ่าน signed API เท่านั้น แบบฟอร์มนี้ยังไม่รองรับการรับรองข้อมูลเวลาเดิม</p>
+                    <h2 id="metricId">
+                    </h2>
+                    <dl id="incidentDetailGrid" class="bd-grid">
+                    </dl>
+                    <h3>ประวัติการเปลี่ยนแปลง</h3>
+                    <ol id="detailTimeline">
+                    </ol>
+                    <p id="auditState">
+                    </p>
+                </section>
+                <section class="card">
+                    <h2>รับงาน / ซ่อม / ตรวจรับ</h2>
+                    <p>การเปลี่ยนแปลงตรวจ revision และสิทธิ์ที่ backend ทุกครั้ง</p>
+                    <form id="workflowForm">
+                        <div class="bd-grid">
+                            <label>ผู้รับผิดชอบ<input name="owner" type="text" >
+                            </label>
+                            <label>เวลาเข้ารับงาน<input name="assignedAt" type="datetime-local" >
+                            </label>
+                            <label>เวลาเริ่มซ่อม<input name="repairStartedAt" type="datetime-local" >
+                            </label>
+                            <label>สาเหตุที่ตรวจพบ<textarea name="confirmedRootCause" maxlength="2000" rows="3">
+                                </textarea>
+                            </label>
+                            <label>วิธีแก้ไข<textarea name="actionTaken" maxlength="2000" rows="3">
+                                </textarea>
+                            </label>
+                            <label>วันเวลากลับมาเดินจริง<input name="restoredAt" type="datetime-local" >
+                            </label>
+                            <label>ผู้ตรวจรับ<input name="verifiedBy" type="text" >
+                            </label>
+                            <label>วันเวลาตรวจรับ<input name="verifiedAt" type="datetime-local" >
+                            </label>
+                            <label>ผลตรวจรับ<textarea name="verificationResult" maxlength="2000" rows="3">
+                                </textarea>
+                            </label>
+                            <label>เหตุผลที่ยังไม่ทราบสาเหตุ<input name="causePendingReason" type="text" maxlength="1000">
+                            </label>
+                            <label class="bd-checkbox">
+                                <input name="causePending" type="checkbox">ยังไม่ทราบสาเหตุ</label>
+                            <label>เหตุผลการแก้ไขหลังปิด<textarea name="correctionReason" maxlength="1000" rows="3">
+                                </textarea>
+                            </label>
+                            <label>เหตุผลยกเลิกรายการ<textarea name="voidReason" maxlength="1000" rows="3">
+                                </textarea>
+                            </label>
+                        </div>
+                        <div class="bd-actions">
+                            <button type="button" data-action="assign">รับงาน</button>
+                            <button type="button" data-action="repair">เริ่มซ่อม</button>
+                            <button type="button" data-action="update">บันทึกข้อมูลซ่อม</button>
+                            <button type="button" data-action="monitor">คืนเครื่อง / Monitoring</button>
+                            <button type="button" data-action="close">ตรวจรับและปิดงาน</button>
+                            <button type="button" data-action="correct">แก้ไขพร้อมเหตุผล</button>
+                            <button type="button" data-action="void">ยกเลิกรายการ</button>
+                            <button id="checkReceipt" type="button" hidden>ตรวจผลคำขอเดิม</button>
+                            <button id="retryOperation" type="button" hidden>ส่งคำขอเดิมอีกครั้ง</button>
+                            <button id="reloadDetail" type="button">อ่าน revision ล่าสุด</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>

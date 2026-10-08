@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="th">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="referrer" content="no-referrer">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title>Machine Breakdown Records - Project APEX Flow</title>
+        <script src="https://cdn.tailwindcss.com">
+        </script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap');
+            body {
+            font-family: 'Sarabun', sans-serif;
+            background:
+            radial-gradient(circle at top left, rgba(255, 199, 0, .08), transparent 28%),
+            radial-gradient(circle at top right, rgba(0, 158, 247, .10), transparent 25%),
+            #151521;
+            color: #a1a5b7;
+            }
+            .font-en { font-family: 'Inter', sans-serif; }
+            .card { background: linear-gradient(145deg, #1e1e2d 0%, #151521 100%); }
+            .field {
+            background: #151521;
+            border: 1px solid #323248;
+            color: white;
+            }
+            .field:focus {
+            outline: none;
+            border-color: #ffc700;
+            box-shadow: 0 0 0 1px rgba(255, 199, 0, .22);
+            }
+            .pill {
+            background: rgba(255, 199, 0, .10);
+            border: 1px solid rgba(255, 199, 0, .24);
+            }
+            .login-backdrop {
+            background: linear-gradient(180deg, rgba(21, 21, 33, .96), rgba(21, 21, 33, .88));
+            backdrop-filter: blur(10px);
+            }
+            .machine-option {
+            background: #151521;
+            border: 1px solid #323248;
+            transition: border-color .18s ease, background .18s ease, transform .18s ease;
+            }
+            .machine-option:hover { border-color: #5e6278; transform: translateY(-1px); }
+            .machine-option.is-selected {
+            background: rgba(0, 158, 247, .10);
+            border-color: #009ef7;
+            box-shadow: 0 0 0 1px rgba(0, 158, 247, .16);
+            }
+            #machineOptions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+            @media (min-width: 1024px) { #machineOptions { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+            #machineOptions .machine-option { padding: 12px !important; }
+            .machine-select-button { min-width: 0; }
+            .machine-select-button:focus-visible { outline: 2px solid #009ef7; outline-offset: 4px; border-radius: 4px; }
+            #machineOptions .machine-select-button > span:last-child { font-size: 12px; margin-top: 4px; }
+            #machineOptions label { margin-top: 8px; }
+            #machineOptions .machine-status-select:disabled {
+            appearance: none; opacity: 1; color: #d7deea;
+            background: transparent; border: 0; border-radius: 0;
+            padding: 2px 0 !important; margin-top: 2px; font-size: 13px;
+            cursor: default; width: 100%; text-overflow: ellipsis;
+            }
+            .machine-status-select {
+            background: #1a1a27;
+            border: 1px solid #323248;
+            color: white;
+            }
+            .machine-status-select:focus { outline: none; border-color: #009ef7; }
+            .machine-status-dot {
+            display: inline-block !important;
+            width: 12px !important;
+            height: 12px !important;
+            flex: 0 0 12px !important;
+            border-radius: 9999px;
+            }
+            .machine-status-dot { background: #9599ad; }
+            .machine-status-dot.status-fault { background: #f1416c !important; }
+            .machine-status-dot.status-ready { background: #50cd89 !important; box-shadow: 0 0 8px rgba(80, 205, 137, .48); }
+            .machine-status-dot.status-maintenance { background: #ffc700 !important; box-shadow: 0 0 8px rgba(255, 199, 0, .48); }
+            .machine-status-dot.status-not-installed { background: #f1416c !important; box-shadow: 0 0 8px rgba(241, 65, 108, .50); }
+        </style>
+        <link rel="stylesheet" href="yakitori-m1-theme.css?v=20260719-01">
+        <link rel="stylesheet" href="recording-workspace-theme.css?v=20260719-01">
+        <link rel="stylesheet" href="breakdown-ui.css?v=20261002-original-theme-01">
+        <script defer src="yakitori-runtime.js">
+        </script>
+        <script defer src="breakdown-domain.js">
+        </script>
+        <script defer src="breakdown-supabase-config.js"></script>
+        <script defer src="breakdown-supabase.js"></script>
+        <script defer src="breakdown-client.js">
+        </script>
+        <script defer src="breakdown-ui.js">
+        </script>
+    </head>
+    <body class="m1-theme m1-form recording-workspace recording-breakdown" data-breakdown-page="log">
+        <main id="app">
+            <header class="card bd-log-header">
+                <div class="bd-log-heading">
+                    <p class="bd-log-eyebrow">Internal Factory Tool</p>
+                    <h1>Machine Breakdown Records</h1>
+                    <p>แจ้งอาการก่อน รับงานและปิดงานบนใบงานเดียวกัน</p>
+                </div>
+                <nav class="recording-actions" aria-label="Page navigation">
+                    <a href="index.html" class="recording-nav">Recording Hub</a>
+                    <a href="MachineBreakdownEvents.html" class="recording-nav">Event Table</a>
+                    <a href="MachineConfiguration.html" class="recording-nav">Machine Configuration</a>
+                    <span class="recording-chip">Breakdown</span>
+                </nav>
+            </header>
+            <p id="transportState" role="status" aria-live="polite">กำลังตรวจช่องทางบันทึกที่ปลอดภัย…</p>
+            <p id="feedback" role="status" aria-live="polite">
+            </p>
+            <section class="card">
+                <div class="bd-log-intro">
+                    <h2>Quick Record</h2>
+                    <p>สินค้าและสถานะอ่านจาก Configuration เท่านั้น ไม่เปลี่ยนการตั้งค่าเครื่อง</p>
+                </div>
+                <form id="breakdownForm">
+                    <label class="bd-log-product">สินค้า / Target reference ของเหตุการณ์
+                        <select name="productLine" disabled>
+                            <option value="BL23G_M1">BL 23G R15 (M1)</option>
+                            <option value="BL23G_M2">BL 23G R15 (M2)</option>
+                            <option value="BBSKINR12">BB SKIN 25G R12</option>
+                            <option value="NECKSKINR15">Neck Skin 40G R15</option>
+                            <option value="BBSKINF15">BB SKIN 35G F15</option>
+                            <option value="GZ40G">Gizzard 40G S18</option>
+                            <option value="GZ30G">Gizzard 30G R15</option>
+                        </select>
+                    </label>
+                    <div class="bd-log-machine-label">
+                        <p>เลือกเครื่องจักรที่เกิด Breakdown <span class="bd-required">*</span></p>
+                        <p>เขียว: พร้อมใช้งาน · เหลือง: บำรุงรักษา · แดง: ยังไม่ติดตั้ง</p>
+                    </div>
+                    <div id="machineOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="machine-option rounded-xl px-4 py-4" data-machine-card="M1">
+                            <button type="button" class="machine-select-button w-full text-left" data-machine="M1">
+                                <span class="flex items-center gap-2">
+                                    <span class="machine-status-dot h-2.5 w-2.5 rounded-full" data-machine-dot="M1">
+                                    </span>
+                                    <strong class="text-white">M1</strong>
+                                </span>
+                                <span class="block mt-2 text-sm text-[#a1a5b7]">Skewer Yakitori Machine 1</span>
+                            </button>
+                            <p class="block mt-3 text-xs text-[#a1a5b7]">สินค้า: <span data-machine-product="M1">กำลังอ่านข้อมูล…</span>
+                            </p>
+                            <p class="block mt-2 text-xs text-[#a1a5b7]">สถานะ: <span data-machine-status="M1">กำลังอ่านข้อมูล…</span>
+                            </p>
+                        </div>
+                        <div class="machine-option rounded-xl px-4 py-4" data-machine-card="M2">
+                            <button type="button" class="machine-select-button w-full text-left" data-machine="M2">
+                                <span class="flex items-center gap-2">
+                                    <span class="machine-status-dot h-2.5 w-2.5 rounded-full" data-machine-dot="M2">
+                                    </span>
+                                    <strong class="text-white">M2</strong>
+                                </span>
+                                <span class="block mt-2 text-sm text-[#a1a5b7]">Skewer Yakitori Machine 2</span>
+                            </button>
+                            <p class="block mt-3 text-xs text-[#a1a5b7]">สินค้า: <span data-machine-product="M2">กำลังอ่านข้อมูล…</span>
+                            </p>
+                            <p class="block mt-2 text-xs text-[#a1a5b7]">สถานะ: <span data-machine-status="M2">กำลังอ่านข้อมูล…</span>
+                            </p>
+                        </div>
+                        <div class="machine-option rounded-xl px-4 py-4" data-machine-card="M3">
+                            <button type="button" class="machine-select-button w-full text-left" data-machine="M3">
+                                <span class="flex items-center gap-2">
+                                    <span class="machine-status-dot h-2.5 w-2.5 rounded-full" data-machine-dot="M3">
+                                    </span>
+                                    <strong class="text-white">M3</strong>
+                                </span>
+                                <span class="block mt-2 text-sm text-[#a1a5b7]">Skewer Yakitori Machine 3</span>
+                            </button>
+                            <p class="block mt-3 text-xs text-[#a1a5b7]">สินค้า: <span data-machine-product="M3">กำลังอ่านข้อมูล…</span>
+                            </p>
+                            <p class="block mt-2 text-xs text-[#a1a5b7]">สถานะ: <span data-machine-status="M3">กำลังอ่านข้อมูล…</span>
+                            </p>
+                        </div>
+                        <div class="machine-option rounded-xl px-4 py-4" data-machine-card="M4">
+                            <button type="button" class="machine-select-button w-full text-left" data-machine="M4">
+                                <span class="flex items-center gap-2">
+                                    <span class="machine-status-dot h-2.5 w-2.5 rounded-full" data-machine-dot="M4">
+                                    </span>
+                                    <strong class="text-white">M4</strong>
+                                </span>
+                                <span class="block mt-2 text-sm text-[#a1a5b7]">Skewer Yakitori Machine 4</span>
+                            </button>
+                            <p class="block mt-3 text-xs text-[#a1a5b7]">สินค้า: <span data-machine-product="M4">กำลังอ่านข้อมูล…</span>
+                            </p>
+                            <p class="block mt-2 text-xs text-[#a1a5b7]">สถานะ: <span data-machine-status="M4">กำลังอ่านข้อมูล…</span>
+                            </p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="station" value="M1">
+                    <div class="bd-grid">
+                        <label class="bd-log-wide">วันเวลาเริ่มหยุด (Asia/Bangkok)<input name="startedAt" type="datetime-local" required>
+                        </label>
+                        <label>กะ<select name="shift" >
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                            </select>
+                        </label>
+                        <label>ประเภทเหตุ<select name="eventType" >
+                                <option value="Machine">ขัดข้องเครื่อง</option>
+                                <option value="Process">หยุดจากกระบวนการ</option>
+                                <option value="Planned">หยุดตามแผน</option>
+                            </select>
+                        </label>
+                        <label>ความเร่งด่วน<select name="severity" >
+                                <option value="Medium">ปกติ</option>
+                                <option value="High">เร่งด่วน</option>
+                                <option value="Low">ต่ำ</option>
+                            </select>
+                        </label>
+                        <label>ชุดอุปกรณ์<input name="component" type="text" maxlength="100">
+                        </label>
+                        <label class="bd-log-wide">อาการที่พบ <span class="bd-required">*</span><textarea name="symptom" maxlength="500" rows="3"></textarea>
+                        </label>
+                        <label class="bd-log-wide">หมายเหตุ<textarea name="note" maxlength="1000" rows="3"></textarea>
+                        </label>
+                    </div>
+                    <div class="bd-actions">
+                        <button id="saveReport" type="submit" disabled>ส่งแจ้งเหตุ</button>
+                        <button id="saveDraft" type="button">เก็บร่าง</button>
+                        <button id="checkReceipt" type="button" hidden>ตรวจผลคำขอเดิม</button>
+                        <button id="retryOperation" type="button" hidden>ส่งคำขอเดิมอีกครั้ง</button>
+                        <button id="reloadLayout" type="button">อ่าน Configuration ใหม่</button>
+                    </div>
+                </form>
+            </section>
+            <section class="card">
+                <h2>เหตุการณ์ที่ยืนยันจากระบบ</h2>
+                <div id="breakdownHistory">
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
+
+
+
+
+
+
+

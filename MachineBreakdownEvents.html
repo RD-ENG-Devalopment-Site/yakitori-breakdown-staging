@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="th">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="referrer" content="no-referrer">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Machine Breakdown Events - APEX Flow</title>
+        <script src="https://cdn.tailwindcss.com">
+        </script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap');
+            body { font-family: 'Sarabun', sans-serif; background: #151521; color: #a1a5b7; }
+            .font-en { font-family: 'Inter', sans-serif; }
+            .card { background: linear-gradient(145deg, #1e1e2d 0%, #151521 100%); }
+            .field { background: #151521; border: 1px solid #323248; color: white; }
+            .field:focus { outline: none; border-color: #009ef7; box-shadow: 0 0 0 1px rgba(0,158,247,.24); }
+        </style>
+        <link rel="stylesheet" href="yakitori-m1-theme.css?v=20260719-01">
+        <link rel="stylesheet" href="breakdown-ui.css">
+        <script defer src="yakitori-runtime.js">
+        </script>
+        <script defer src="breakdown-domain.js">
+        </script>
+        <script defer src="breakdown-supabase-config.js"></script>
+        <script defer src="breakdown-supabase.js"></script>
+        <script defer src="breakdown-client.js">
+        </script>
+        <script defer src="breakdown-ui.js">
+        </script>
+    </head>
+    <body class="m1-theme m1-detail" data-breakdown-page="events">
+        <main>
+            <header class="card">
+                <h1>ตารางสรุปทุก Event</h1>
+                <p>อ่านข้อมูลที่ยืนยันจากระบบ ไม่ใช้ร่างใน browser เป็นประวัติจริง</p>
+                <nav>
+                    <a href="MachineConfiguration.html">Machine Configuration</a>
+                    <a href="index.html">Recording Hub</a>
+                    <a href="MachineBreakdownLog.html">แจ้งเหตุ</a>
+                    <a href="MachineBreakdownEvents.html">Event Table</a>
+                </nav>
+            </header>
+            <p id="transportState" role="status" aria-live="polite">กำลังตรวจช่องทางบันทึกที่ปลอดภัย…</p>
+            <p id="feedback" role="status" aria-live="polite">
+            </p>
+            <section class="card">
+                <h2>กรองเหตุการณ์</h2>
+                <form id="filters" class="bd-grid">
+                    <label>เครื่อง<select name="station" >
+                            <option value="">ทุกเครื่อง</option>
+                            <option value="M1">M1</option>
+                            <option value="M2">M2</option>
+                            <option value="M3">M3</option>
+                            <option value="M4">M4</option>
+                        </select>
+                    </label>
+                    <label>สินค้า<select name="productCode" >
+                            <option value="">ทุกสินค้า</option>
+                            <option value="BL23G_M1">BL 23G R15 (M1)</option>
+                            <option value="BL23G_M2">BL 23G R15 (M2)</option>
+                            <option value="BBSKINR12">BB SKIN 25G R12</option>
+                            <option value="NECKSKINR15">Neck Skin 40G R15</option>
+                            <option value="BBSKINF15">BB SKIN 35G F15</option>
+                            <option value="GZ40G">Gizzard 40G S18</option>
+                            <option value="GZ30G">Gizzard 30G R15</option>
+                        </select>
+                    </label>
+                    <label>กะ<select name="shift" >
+                            <option value="">ทุกกะ</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                        </select>
+                    </label>
+                    <label>สถานะ<select name="breakdownStatus" >
+                            <option value="">ทุกสถานะ</option>
+                            <option value="Open">Open</option>
+                            <option value="Monitoring">Monitoring</option>
+                            <option value="Closed">Closed</option>
+                            <option value="Voided">ยกเลิก</option>
+                        </select>
+                    </label>
+                    <label>ตั้งแต่วัน<input name="from" type="date" >
+                    </label>
+                    <label>ถึงวัน<input name="to" type="date" >
+                    </label>
+                    <label>ค้นหา ID / อาการ / ผู้รับงาน<input name="search" type="text" >
+                    </label>
+                </form>
+                <button id="reloadEvents" type="button">อ่านข้อมูลล่าสุด</button>
+                <p id="eventsCountLabel">
+                </p>
+                <div class="bd-table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>เครื่อง / สินค้า / กะ</th>
+                                <th>เริ่มหยุด</th>
+                                <th>สถานะ</th>
+                                <th>อาการ</th>
+                                <th>Downtime</th>
+                                <th>เปิดใบงาน</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machine Configuration - Project APEX Flow</title>
+  <link rel="stylesheet" href="yakitori-m1-theme.css">
+  <link rel="stylesheet" href="recording-workspace-theme.css">
+  <link rel="stylesheet" href="machine-configuration.css">
+  <script src="breakdown-supabase-config.js"></script>
+  <script src="yakitori-runtime.js"></script>
+  <script src="layout-domain.js"></script>
+  <script src="layout-client.js"></script>
+  <script defer src="machine-configuration.js"></script>
+</head>
+<body class="m1-theme m1-form recording-workspace recording-breakdown configuration-page">
+  <main id="app" hidden>
+    <header class="card configuration-header">
+      <div>
+        <h1>Machine Configuration</h1>
+        <p>แก้ไขข้อมูลเครื่อง M1–M4 ที่ใช้ร่วมกับ Yakitori Machine 3D Viewer</p>
+      </div>
+      <nav class="recording-actions" aria-label="หน้าที่เกี่ยวข้อง">
+        <a class="recording-nav" href="MachineBreakdownLog.html">Breakdown Records</a>
+        <a class="recording-nav" href="yakitori-machine-3d-viewer/index.html">เปิด 3D Viewer</a>
+      </nav>
+    </header>
+    <section class="card configuration-panel" aria-labelledby="configuration-title">
+      <div class="configuration-toolbar">
+        <div><h2 id="configuration-title">การตั้งค่าเครื่องจักร</h2><p>เลือกเครื่อง แก้ไขรายละเอียด แล้วบันทึกและตรวจยืนยันกับ Sheet</p></div>
+        <button id="reloadLayout" type="button">โหลดข้อมูลล่าสุด</button>
+      </div>
+      <p id="layoutMessage" role="status" aria-live="polite">กำลังอ่านข้อมูลเครื่องจักร…</p>
+      <label class="machine-selector" for="selectedMachine">เครื่องที่ต้องการแก้ไข<select id="selectedMachine"><option value="YK-101">M1 · YK-101</option><option value="YK-102">M2 · YK-102</option><option value="YK-103">M3 · YK-103</option><option value="YK-104">M4 · YK-104</option></select></label>
+      <div id="machineRows" aria-busy="true"></div>
+      <p class="configuration-note">ข้อมูลจาก MachineLayout_DataLog · วันเวลาใช้ Asia/Bangkok · idle หมายถึงไม่ใช้งาน ไม่ได้ยืนยันว่าเครื่องยังไม่ติดตั้ง</p>
+    </section>
+  </main>
+</body>
+</html>

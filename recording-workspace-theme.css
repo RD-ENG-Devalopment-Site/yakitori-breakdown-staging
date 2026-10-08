@@ -1,0 +1,172 @@
+/* Shared visual template for the three Recording Hub workspaces. */
+:root {
+  --recording-bg: #14141f;
+  --recording-panel: #1b1b29;
+  --recording-panel-soft: #171724;
+  --recording-field: #151521;
+  --recording-border: #303044;
+  --recording-text: #f5f5f7;
+  --recording-muted: #9599ad;
+  --recording-accent: #009ef7;
+  --recording-accent-rgb: 0, 158, 247;
+}
+
+body.recording-workspace {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(var(--recording-accent-rgb), .055), transparent 28rem),
+    var(--recording-bg) !important;
+  color: var(--recording-muted);
+  font-family: "Sarabun", "Noto Sans Thai", Tahoma, sans-serif !important;
+}
+
+body.recording-workspace.recording-breakdown {
+  --recording-accent: #ffc700;
+  --recording-accent-rgb: 255, 199, 0;
+}
+
+body.recording-workspace.recording-block {
+  --recording-accent: #50cd89;
+  --recording-accent-rgb: 80, 205, 137;
+}
+
+.recording-workspace .font-en,
+.recording-workspace h1,
+.recording-workspace h2,
+.recording-workspace h3,
+.recording-workspace button,
+.recording-workspace .recording-nav {
+  font-family: "Inter", "Sarabun", sans-serif;
+}
+
+.recording-workspace #app,
+.recording-workspace #recordApp {
+  width: 100%;
+  max-width: 1280px !important;
+}
+
+.recording-workspace .card {
+  background: var(--recording-panel) !important;
+  border-color: var(--recording-border) !important;
+  box-shadow: none !important;
+}
+
+.recording-workspace main > header.card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.75rem !important;
+}
+
+.recording-workspace main > header.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: var(--recording-accent);
+}
+
+.recording-workspace main > header.card h1 {
+  margin-top: .55rem !important;
+  color: var(--recording-text);
+  font-size: clamp(1.8rem, 3vw, 2.25rem) !important;
+  font-weight: 750;
+  letter-spacing: -.025em;
+}
+
+.recording-workspace main > header.card p:first-child {
+  color: var(--recording-accent) !important;
+  font-size: .68rem !important;
+  letter-spacing: .24em !important;
+}
+
+.recording-workspace main > header.card h1 + p {
+  margin-top: .4rem !important;
+  max-width: 47rem;
+  color: var(--recording-muted) !important;
+  font-size: .9rem !important;
+  line-height: 1.7;
+}
+
+.recording-workspace main > section.card {
+  padding: 1.5rem !important;
+}
+
+.recording-workspace .field,
+.recording-workspace .control {
+  min-height: 46px;
+  background: var(--recording-field) !important;
+  border-color: var(--recording-border) !important;
+  border-radius: .7rem !important;
+  color: var(--recording-text) !important;
+  box-shadow: none !important;
+}
+
+.recording-workspace .field:focus,
+.recording-workspace .control:focus {
+  border-color: var(--recording-accent) !important;
+  box-shadow: 0 0 0 3px rgba(var(--recording-accent-rgb), .09) !important;
+}
+
+.recording-workspace fieldset {
+  background: var(--recording-panel-soft);
+  border-color: var(--recording-border) !important;
+  border-radius: .8rem !important;
+}
+
+.recording-workspace .recording-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .6rem;
+}
+
+.recording-workspace .recording-nav {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--recording-border);
+  border-radius: .65rem;
+  background: #242436;
+  padding: .55rem .9rem;
+  color: #e5e7ef;
+  font-size: .78rem;
+  font-weight: 650;
+  transition: border-color .16s ease, background-color .16s ease;
+}
+
+.recording-workspace .recording-nav:hover {
+  border-color: rgba(var(--recording-accent-rgb), .55);
+  background: #29293d;
+}
+
+.recording-workspace .recording-chip {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  border: 1px solid rgba(var(--recording-accent-rgb), .3);
+  border-radius: 999px;
+  background: rgba(var(--recording-accent-rgb), .08);
+  padding: .35rem .72rem;
+  color: var(--recording-accent);
+  font-family: "Inter", sans-serif;
+  font-size: .64rem;
+  font-weight: 750;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.recording-workspace table thead {
+  background: #151521 !important;
+}
+
+@media (max-width: 767px) {
+  body.recording-workspace {
+    padding: .75rem !important;
+  }
+
+  .recording-workspace main > header.card,
+  .recording-workspace main > section.card {
+    padding: 1.15rem !important;
+  }
+}
