@@ -4,8 +4,8 @@ window.BREAKDOWN_SUPABASE = Object.freeze({
   "environment": "staging",
   "url": "https://qsvsrudyarmxohrhqwqf.supabase.co",
   "publishableKey": "",
-  "frontendOrigin": "https://rd-eng-devalopment-site.github.io",
-  "redirectUrl": "https://rd-eng-devalopment-site.github.io/yakitori-breakdown-staging/MachineBreakdownLog.html",
+  "frontendOrigin": "https://yakitori-breakdown-staging.pages.dev",
+  "redirectUrl": "https://yakitori-breakdown-staging.pages.dev/MachineBreakdownLog.html",
   "gasUrl": "",
   "approvedGasUrl": ""
 });
