@@ -3,6 +3,12 @@
   X-Content-Type-Options: nosniff
 /*.html
   Cache-Control: no-store
+/MachineBreakdown*
+  Cache-Control: no-store
+/MachineConfiguration*
+  Cache-Control: no-store
+/yakitori-machine-3d-viewer/
+  Cache-Control: no-store
 /
   Cache-Control: no-store
 /breakdown-supabase-config.js
