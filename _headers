@@ -11,5 +11,8 @@
   Cache-Control: no-store
 /
   Cache-Control: no-store
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://qsvsrudyarmxohrhqwqf.supabase.co; img-src 'self' data:; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
+/auth-check.mjs
+  Cache-Control: no-store
 /breakdown-supabase-config.js
   Cache-Control: no-store
