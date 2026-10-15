@@ -1,7 +1,7 @@
 # Machine Breakdown staging frontend
 
-Public static staging snapshot only. Google login, GAS feed and writes are intentionally disabled.
+Mode: auth-writes-off. Auth enabled: true. Business writes enabled: false.
 
 Approved frontend: https://yakitori-breakdown-staging.pages.dev/
 
-The Cloudflare Pages hostname is separate from production GitHub Pages. Auth and business writes still require their hosted acceptance gates.
+The Cloudflare Pages hostname is separate from production GitHub Pages. Business writes still require their hosted acceptance gates.

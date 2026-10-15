@@ -1,7 +1,7 @@
 (function (global) {
     const BUILD_VERSION = "20261002-layout-readonly-01";
     const CONFIG = {
-        appsScriptUrl: "https://script.google.com/macros/s/AKfycbzCP20irjQdA65MEQXeB4KW8kkvmYRMJYbL8Zm1IdklPpKvvmTIIFcx0Zs_pm3Nwyel/exec",
+        appsScriptUrl: "https://invalid.invalid/staging-artifact-no-production-target",
         buildVersion: BUILD_VERSION
     };
 

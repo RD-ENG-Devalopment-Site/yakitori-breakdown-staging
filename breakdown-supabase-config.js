@@ -1,11 +1,11 @@
-// Staging only. Auth and data access remain disabled until hosted gates pass.
+// Staging public bindings only. No OAuth, server, HMAC or database secrets.
 window.BREAKDOWN_SUPABASE = Object.freeze({
-  "enabled": false,
+  "enabled": true,
   "environment": "staging",
   "url": "https://qsvsrudyarmxohrhqwqf.supabase.co",
-  "publishableKey": "",
+  "publishableKey": "sb_publishable_h58FnkQqWPIQLPK00DLlsA_N0uCDyRa",
   "frontendOrigin": "https://yakitori-breakdown-staging.pages.dev",
   "redirectUrl": "https://yakitori-breakdown-staging.pages.dev/MachineBreakdownLog.html",
-  "gasUrl": "",
-  "approvedGasUrl": ""
+  "gasUrl": "https://script.google.com/macros/s/AKfycbw3WjS8Kd8cQxncFEvi3nJqUf47FYqOXqJcE5jtykayJv5DsSuqDGlOXGh3D1z4JI9m/exec",
+  "approvedGasUrl": "https://script.google.com/macros/s/AKfycbw3WjS8Kd8cQxncFEvi3nJqUf47FYqOXqJcE5jtykayJv5DsSuqDGlOXGh3D1z4JI9m/exec"
 });

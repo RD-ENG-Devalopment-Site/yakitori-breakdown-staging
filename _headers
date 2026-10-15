@@ -1,6 +1,8 @@
 /*
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'self' https://rd-eng-devalopment-site.github.io; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self' https://qsvsrudyarmxohrhqwqf.supabase.co wss://qsvsrudyarmxohrhqwqf.supabase.co https://script.google.com https://script.googleusercontent.com; worker-src 'self' blob:; form-action 'self'; upgrade-insecure-requests
   Referrer-Policy: no-referrer
   X-Content-Type-Options: nosniff
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
 /*.html
   Cache-Control: no-store
 /MachineBreakdown*
@@ -10,9 +12,6 @@
 /yakitori-machine-3d-viewer/
   Cache-Control: no-store
 /
-  Cache-Control: no-store
-  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://qsvsrudyarmxohrhqwqf.supabase.co; img-src 'self' data:; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
-/auth-check.mjs
   Cache-Control: no-store
 /breakdown-supabase-config.js
   Cache-Control: no-store

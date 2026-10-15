@@ -1,0 +1,12 @@
+{
+  "environment": "staging",
+  "projectRef": "qsvsrudyarmxohrhqwqf",
+  "frontend": "https://yakitori-breakdown-staging.pages.dev/",
+  "mode": "auth-writes-off",
+  "authEnabled": true,
+  "businessWritesEnabled": false,
+  "sdk": "@supabase/supabase-js@2.117.2",
+  "tailwind": "reviewed-static-css-from-3.4.17",
+  "tailwindCssSha256": "e42f602856af7cb32bd049778bc8de221c57210802f6e64784915c49776fb7fe",
+  "configSha256": "dcd83b639230a618de596d8efa3f913feb4548169876078e3f0e6ee6c3546a00"
+}

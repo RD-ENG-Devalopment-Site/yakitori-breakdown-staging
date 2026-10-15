@@ -68,7 +68,7 @@
         }
         // Tab-scoped storage preserves PKCE/session across these three HTML pages.
         // Identity and roles are always verified by Auth/Postgres on the server.
-        const {createClient} = await import('https://esm.sh/@supabase/supabase-js@2.117.2');
+        const {createClient} = await import('./vendor/supabase-js-2.117.2.min.js');
         const auth = createClient(config.url,config.publishableKey,{
             auth:{flowType:'pkce',persistSession:true,storage:root.sessionStorage,autoRefreshToken:true,detectSessionInUrl:false}
         });

@@ -1,7 +1,7 @@
 (function (root) {
     'use strict';
     const domain = root.BreakdownDomain;
-    const apiUrl = root.BREAKDOWN_API_URL || root.YakitoriRuntime?.CONFIG?.appsScriptUrl || 'https://script.google.com/macros/s/AKfycbzCP20irjQdA65MEQXeB4KW8kkvmYRMJYbL8Zm1IdklPpKvvmTIIFcx0Zs_pm3Nwyel/exec';
+    const apiUrl = root.BREAKDOWN_API_URL || root.YakitoriRuntime?.CONFIG?.appsScriptUrl || 'https://invalid.invalid/staging-artifact-no-production-target';
     let capabilities = { writesEnabled: false, readable: false, protocol: null, reason: 'NOT_CHECKED' };
     let account = 'read-only';
     const operations = new Map();
